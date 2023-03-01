@@ -1,10 +1,11 @@
 package src.test;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import src.java.SimpleArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class SimpleArrayListTest {
@@ -20,7 +21,7 @@ class SimpleArrayListTest {
         String[] expected = {value};
 
         //then
-        Assertions.assertArrayEquals(expected, actual.getArray());
+        assertArrayEquals(expected, actual.getArray());
     }
 
     @Test
@@ -38,7 +39,7 @@ class SimpleArrayListTest {
         String[] expected = {"1", "2", "a", "3", "4", "5"};
 
         //then
-        Assertions.assertArrayEquals(expected, list.getArray());
+        assertArrayEquals(expected, list.getArray());
     }
 
     @Test
@@ -53,7 +54,7 @@ class SimpleArrayListTest {
         String actual = list.get(0);
 
         //then
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -67,7 +68,7 @@ class SimpleArrayListTest {
         String actual = list.get(0);
 
         //then
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -81,7 +82,7 @@ class SimpleArrayListTest {
         list.add("a");
 
         //then
-        Assertions.assertTrue(list.contains("2"));
+        assertTrue(list.contains("2"));
     }
 
     @Test
@@ -97,7 +98,7 @@ class SimpleArrayListTest {
         int actual = list.indexOf("2");
 
         //then
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -114,7 +115,7 @@ class SimpleArrayListTest {
         int actual = list.size();
 
         //then
-        Assertions.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -123,7 +124,7 @@ class SimpleArrayListTest {
         SimpleArrayList list = new SimpleArrayList();
 
         //when,then
-        Assertions.assertTrue(list.isEmpty());
+        assertTrue(list.isEmpty());
     }
 
     @Test
@@ -144,6 +145,6 @@ class SimpleArrayListTest {
         list.clear();
 
         //then
-        Assertions.assertTrue(list.isEmpty());
+        assertTrue(list.isEmpty());
     }
 }
