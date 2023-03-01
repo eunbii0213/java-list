@@ -25,6 +25,17 @@ class SimpleArrayListTest {
 
     @org.junit.jupiter.api.Test
     void set() {
+        //given
+        SimpleArrayList list = new SimpleArrayList();
+
+        //when
+        list.add("1");
+        list.set(0,"2");
+        String expected = "2";
+        String actual = list.get(0);
+
+        //then
+        Assertions.assertEquals(expected,actual);
     }
 
     @org.junit.jupiter.api.Test
