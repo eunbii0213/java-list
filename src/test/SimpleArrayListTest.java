@@ -68,6 +68,18 @@ class SimpleArrayListTest {
 
     @org.junit.jupiter.api.Test
     void indexOf() {
+        //given
+        SimpleArrayList list = new SimpleArrayList();
+
+        //when
+        list.add("1");
+        list.add("2");
+        list.add("a");
+        int expected = 1;
+        int actual = list.indexOf("2");
+
+        //then
+        Assertions.assertEquals(expected,actual);
     }
 
     @org.junit.jupiter.api.Test
