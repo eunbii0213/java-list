@@ -1,11 +1,15 @@
 package src.test;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.Test;
 import src.java.SimpleArrayList;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class SimpleArrayListTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void add() {
         //given
         SimpleArrayList actual = new SimpleArrayList();
@@ -19,7 +23,7 @@ class SimpleArrayListTest {
         Assertions.assertArrayEquals(expected, actual.getArray());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void testAdd() {
         //given
         SimpleArrayList list = new SimpleArrayList();
@@ -30,29 +34,29 @@ class SimpleArrayListTest {
         list.add("3");
         list.add("4");
         list.add("5");
-        list.add(2,"a");
-        String[] expected = {"1","2","a","3","4","5"};
+        list.add(2, "a");
+        String[] expected = {"1", "2", "a", "3", "4", "5"};
 
         //then
-        Assertions.assertArrayEquals(expected,list.getArray());
+        Assertions.assertArrayEquals(expected, list.getArray());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void set() {
         //given
         SimpleArrayList list = new SimpleArrayList();
 
         //when
         list.add("1");
-        list.set(0,"2");
+        list.set(0, "2");
         String expected = "2";
         String actual = list.get(0);
 
         //then
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void get() {
         //given
         SimpleArrayList list = new SimpleArrayList();
@@ -63,10 +67,10 @@ class SimpleArrayListTest {
         String actual = list.get(0);
 
         //then
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void contains() {
         //given
         SimpleArrayList list = new SimpleArrayList();
@@ -80,7 +84,7 @@ class SimpleArrayListTest {
         Assertions.assertTrue(list.contains("2"));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void indexOf() {
         //given
         SimpleArrayList list = new SimpleArrayList();
@@ -93,10 +97,10 @@ class SimpleArrayListTest {
         int actual = list.indexOf("2");
 
         //then
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void size() {
         //given
         SimpleArrayList list = new SimpleArrayList();
@@ -110,10 +114,10 @@ class SimpleArrayListTest {
         int actual = list.size();
 
         //then
-        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(expected, actual);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void isEmpty() {
         //given
         SimpleArrayList list = new SimpleArrayList();
@@ -122,15 +126,15 @@ class SimpleArrayListTest {
         Assertions.assertTrue(list.isEmpty());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void remove() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void testRemove() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void clear() {
         //given
         SimpleArrayList list = new SimpleArrayList();
