@@ -46,7 +46,10 @@ class SimpleArrayListTest {
 
     @org.junit.jupiter.api.Test
     void isEmpty() {
+        //given
         SimpleArrayList list = new SimpleArrayList();
+
+        //when,then
         Assertions.assertTrue(list.isEmpty());
     }
 
