@@ -37,7 +37,7 @@ public class SimpleArrayList implements SimpleList {
 
     @Override
     public String get(int index) {
-        return null;
+        return array[index];
     }
 
     @Override
