@@ -57,7 +57,7 @@ public class SimpleArrayList implements SimpleList {
 
     @Override
     public int size() {
-        return 0;
+        return array.length;
     }
 
     @Override
