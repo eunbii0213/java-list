@@ -17,13 +17,13 @@ public class SimpleArrayList implements SimpleList {
     }
 
     private void arraySizeUp() {
-        String[] changeStringArr = new String[array.length + 1];
+        String[] changedArray = new String[array.length + 1];
 
         for (int i = 0; i < array.length; i++) {
-            changeStringArr[i] = array[i];
+            changedArray[i] = array[i];
         }
 
-        array = changeStringArr;
+        array = changedArray;
     }
 
     @Override
