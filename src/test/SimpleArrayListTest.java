@@ -1,7 +1,6 @@
 package src.test;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayNameGenerator;
 import src.java.SimpleArrayList;
 
 class SimpleArrayListTest {
@@ -17,7 +16,7 @@ class SimpleArrayListTest {
         String[] expected = {value};
 
         //then
-        Assertions.assertArrayEquals(expected,actual.getArray());
+        Assertions.assertArrayEquals(expected, actual.getArray());
     }
 
     @org.junit.jupiter.api.Test
@@ -30,6 +29,16 @@ class SimpleArrayListTest {
 
     @org.junit.jupiter.api.Test
     void get() {
+        //given
+        SimpleArrayList list = new SimpleArrayList();
+
+        //when
+        list.add("1");
+        String expected = "1";
+        String actual = list.get(0);
+
+        //then
+        Assertions.assertEquals(expected,actual);
     }
 
     @org.junit.jupiter.api.Test
