@@ -32,7 +32,7 @@ public class SimpleArrayList implements SimpleList {
 
     @Override
     public String set(int index, String value) {
-        return null;
+        return array[index] = value;
     }
 
     @Override
