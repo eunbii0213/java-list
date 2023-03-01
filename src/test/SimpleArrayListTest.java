@@ -63,5 +63,14 @@ class SimpleArrayListTest {
 
     @org.junit.jupiter.api.Test
     void clear() {
+        //given
+        SimpleArrayList list = new SimpleArrayList();
+
+        //when
+        list.add("1");
+        list.clear();
+
+        //then
+        Assertions.assertTrue(list.isEmpty());
     }
 }
