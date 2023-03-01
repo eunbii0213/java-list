@@ -8,6 +8,16 @@ class SimpleArrayListTest {
 
     @org.junit.jupiter.api.Test
     void add() {
+        //given
+        SimpleArrayList actual = new SimpleArrayList();
+        String value = "1";
+
+        //when
+        actual.add(value);
+        String[] expected = {value};
+
+        //then
+        Assertions.assertArrayEquals(expected,actual.getArray());
     }
 
     @org.junit.jupiter.api.Test
