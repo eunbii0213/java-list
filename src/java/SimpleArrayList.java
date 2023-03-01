@@ -28,6 +28,16 @@ public class SimpleArrayList implements SimpleList {
 
     @Override
     public void add(int index, String value) {
+        arraySizeUp();
+
+        String pre = array[index];
+        array[index] = value;
+
+        for (int j = index + 1; j < array.length; j++) {
+            String post = array[j];
+            array[j] = pre;
+            pre = post;
+        }
     }
 
     @Override
