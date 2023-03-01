@@ -10,17 +10,20 @@ public class SimpleArrayList implements SimpleList {
             return true;
         }
 
+        arraySizeUp();
+        int size = array.length - 1;
+        array[size] = value;
+        return true;
+    }
+
+    private void arraySizeUp() {
         String[] changeStringArr = new String[array.length + 1];
 
         for (int i = 0; i < array.length; i++) {
             changeStringArr[i] = array[i];
         }
 
-        int size = changeStringArr.length - 1;
-        changeStringArr[size] = value;
-
         array = changeStringArr;
-        return true;
     }
 
     @Override
