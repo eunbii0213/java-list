@@ -74,4 +74,8 @@ public class SimpleArrayList implements SimpleList {
     public void clear() {
 
     }
+
+    public String[] getArray() {
+        return array;
+    }
 }
