@@ -72,7 +72,7 @@ public class SimpleArrayList implements SimpleList {
 
     @Override
     public void clear() {
-
+        array = new String[1];
     }
 
     public String[] getArray() {
