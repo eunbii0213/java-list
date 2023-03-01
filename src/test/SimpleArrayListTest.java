@@ -21,6 +21,20 @@ class SimpleArrayListTest {
 
     @org.junit.jupiter.api.Test
     void testAdd() {
+        //given
+        SimpleArrayList list = new SimpleArrayList();
+
+        //when
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+        list.add(2,"a");
+        String[] expected = {"1","2","a","3","4","5"};
+
+        //then
+        Assertions.assertArrayEquals(expected,list.getArray());
     }
 
     @org.junit.jupiter.api.Test
