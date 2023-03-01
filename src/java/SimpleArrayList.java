@@ -1,22 +1,30 @@
 package src.java;
 
 public class SimpleArrayList implements SimpleList {
-    private String[] array;
-
-    public SimpleArrayList(int size) {
-        this.array = new String[size];
-    }
+    private String[] array = new String[1];
 
     @Override
     public boolean add(String value) {
-        int size = array.length - 1;
-        array[size] = value;
+        if (isEmpty()) {
+            array[0] = value;
+            return true;
+        }
+
+        String[] changeStringArr = new String[array.length + 1];
+
+        for (int i = 0; i < array.length; i++) {
+            changeStringArr[i] = array[i];
+        }
+
+        int size = changeStringArr.length - 1;
+        changeStringArr[size] = value;
+
+        array = changeStringArr;
         return true;
     }
 
     @Override
     public void add(int index, String value) {
-
     }
 
     @Override
@@ -46,7 +54,7 @@ public class SimpleArrayList implements SimpleList {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return array[0] == null;
     }
 
     @Override
