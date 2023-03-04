@@ -2,14 +2,31 @@ package src.java;
 
 public class SimpleLinkedList implements SimpleList {
     private Node node;
-    private int size;
-
-    public SimpleLinkedList() {
-    }
+    private int size = 0;
 
     @Override
     public boolean add(String value) {
-        return false;
+        addFirstNode(value);
+
+        if (!isFirstNode()) {
+            Node searchNode = node;
+
+            for (int i = 0; i < size; i++) {
+                searchNode = searchNode.getNextNode();
+            }
+            searchNode.setNextNode(new Node(value));
+        }
+        return true;
+    }
+
+    private void addFirstNode(String value) {
+        if (isFirstNode()) {
+            node = new Node(value);
+        }
+    }
+
+    private boolean isFirstNode() {
+        return size == 0;
     }
 
     @Override
@@ -77,5 +94,9 @@ class Node {
 
     public String getValue() {
         return value;
+    }
+
+    public void setNextNode(Node nextNode) {
+        this.nextNode = nextNode;
     }
 }
