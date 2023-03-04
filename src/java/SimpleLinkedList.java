@@ -11,14 +11,12 @@ public class SimpleLinkedList implements SimpleList {
     @Override
     public boolean add(String value) {
         if (isFirstNode()) {
-            System.out.println("call");
             node = new Node(value);
             size++;
             return true;
         }
 
         if (!isFirstNode()) {
-            System.out.println("call2");
             Node searchNode = node;
 
             for (int i = 0; i < size; i++) {
@@ -88,7 +86,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public void clear() {
-
+        size = 0;
     }
 
     public int getSize() {
