@@ -20,7 +20,7 @@ public class SimpleLinkedList implements SimpleList {
             Node searchNode = node;
 
             for (int i = 0; i < size; i++) {
-                if(isNextNodeExist(searchNode)) {
+                if (isNextNodeExist(searchNode)) {
                     searchNode = searchNode.getNextNode();
                 }
             }
@@ -61,7 +61,20 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public int indexOf(String value) {
-        return 0;
+        Node searchNode = node;
+        return findIndex(value, searchNode);
+    }
+
+    private Integer findIndex(String value, Node searchNode) {
+        for (int index = 0; index < size; index++) {
+            if (searchNode.isEquals(value)) {
+                return index;
+            }
+            if (isNextNodeExist(searchNode)) {
+                searchNode = searchNode.getNextNode();
+            }
+        }
+        return -1;
     }
 
     @Override
@@ -108,5 +121,9 @@ class Node {
 
     public void setNextNode(Node nextNode) {
         this.nextNode = nextNode;
+    }
+
+    public boolean isEquals(String value) {
+        return this.value.equals(value);
     }
 }
