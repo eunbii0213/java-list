@@ -66,7 +66,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
@@ -87,10 +87,6 @@ public class SimpleLinkedList implements SimpleList {
     @Override
     public void clear() {
         size = 0;
-    }
-
-    public int getSize() {
-        return size;
     }
 }
 
