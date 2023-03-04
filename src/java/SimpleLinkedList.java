@@ -1,6 +1,7 @@
 package src.java;
 
 public class SimpleLinkedList implements SimpleList {
+    private static final int ERROR = -1;
     private Node node;
     private int size;
 
@@ -20,7 +21,7 @@ public class SimpleLinkedList implements SimpleList {
             Node searchNode = node;
 
             for (int i = 0; i < size; i++) {
-                if (isNextNodeExist(searchNode)) {
+                if (searchNode.isNextNodeExist()) {
                     searchNode = searchNode.getNextNode();
                 }
             }
@@ -29,10 +30,6 @@ public class SimpleLinkedList implements SimpleList {
             return true;
         }
         return false;
-    }
-
-    private boolean isNextNodeExist(Node searchNode) {
-        return searchNode.getNextNode() != null;
     }
 
     private boolean isFirstNode() {
@@ -56,7 +53,21 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean contains(String value) {
+        Node searchNode = node;
+        for (int i = 0; i < size; i++) {
+            if (searchNode.isEquals(value)) {
+                return true;
+            }
+            searchNode = getNextNode(searchNode);
+        }
         return false;
+    }
+
+    private Node getNextNode(Node searchNode) {
+        if (searchNode.isNextNodeExist()) {
+            searchNode = searchNode.getNextNode();
+        }
+        return searchNode;
     }
 
     @Override
@@ -70,11 +81,9 @@ public class SimpleLinkedList implements SimpleList {
             if (searchNode.isEquals(value)) {
                 return index;
             }
-            if (isNextNodeExist(searchNode)) {
-                searchNode = searchNode.getNextNode();
-            }
+            searchNode = getNextNode(searchNode);
         }
-        return -1;
+        return ERROR;
     }
 
     @Override
@@ -125,5 +134,9 @@ class Node {
 
     public boolean isEquals(String value) {
         return this.value.equals(value);
+    }
+
+    public boolean isNextNodeExist() {
+        return nextNode != null;
     }
 }
