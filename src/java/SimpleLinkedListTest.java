@@ -52,6 +52,18 @@ class SimpleLinkedListTest {
 
     @Test
     void size() {
+        //given
+        SimpleLinkedList list = new SimpleLinkedList();
+
+        //when
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        int expected = 3;
+        int actual = list.size();
+
+        //then
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -61,7 +73,7 @@ class SimpleLinkedListTest {
 
         //when
         int expected = 0;
-        int actual = list.getSize();
+        int actual = list.size();
 
         //then
         assertEquals(expected, actual);
@@ -86,7 +98,7 @@ class SimpleLinkedListTest {
         list.clear();
 
         int expected = 0;
-        int actual = list.getSize();
+        int actual = list.size();
 
         //then
         assertEquals(expected, actual);
