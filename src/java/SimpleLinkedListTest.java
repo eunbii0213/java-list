@@ -26,6 +26,13 @@ class SimpleLinkedListTest {
 
     @Test
     void get() {
+        //given
+        SimpleLinkedList list = new SimpleLinkedList();
+        //when
+        String expected = "nodeGetTest";
+        list.add(expected);
+        //then
+        Assertions.assertEquals(expected, list.get(0));
     }
 
     @Test
