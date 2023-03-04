@@ -48,6 +48,18 @@ class SimpleLinkedListTest {
 
     @Test
     void indexOf() {
+        //given
+        SimpleLinkedList list = new SimpleLinkedList();
+
+        //when
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        int expected = 1;
+        int actual = list.indexOf("2");
+
+        //then
+        assertEquals(expected, actual);
     }
 
     @Test
