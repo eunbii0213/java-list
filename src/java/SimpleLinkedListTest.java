@@ -3,6 +3,8 @@ package src.java;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class SimpleLinkedListTest {
 
     @Test
@@ -13,7 +15,7 @@ class SimpleLinkedListTest {
         String expected = "firstNode";
         list.add(expected);
         //then
-        Assertions.assertEquals(expected, list.get(0));
+        assertEquals(expected, list.get(0));
     }
 
     @Test
@@ -32,7 +34,7 @@ class SimpleLinkedListTest {
         String expected = "nodeGetTest";
         list.add(expected);
         //then
-        Assertions.assertEquals(expected, list.get(0));
+        assertEquals(expected, list.get(0));
     }
 
     @Test
@@ -71,6 +73,6 @@ class SimpleLinkedListTest {
         list.clear();
 
         //then
-        Assertions.assertEquals(expected, list.getSize());
+        assertEquals(expected, list.getSize());
     }
 }
