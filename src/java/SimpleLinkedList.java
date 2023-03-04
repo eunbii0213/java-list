@@ -6,7 +6,9 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean add(String value) {
-        addFirstNode(value);
+        if (isFirstNode()) {
+            node = new Node(value);
+        }
 
         if (!isFirstNode()) {
             Node searchNode = node;
@@ -17,12 +19,6 @@ public class SimpleLinkedList implements SimpleList {
             searchNode.setNextNode(new Node(value));
         }
         return true;
-    }
-
-    private void addFirstNode(String value) {
-        if (isFirstNode()) {
-            node = new Node(value);
-        }
     }
 
     private boolean isFirstNode() {
