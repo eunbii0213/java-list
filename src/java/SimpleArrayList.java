@@ -80,11 +80,30 @@ public class SimpleArrayList implements SimpleList {
         return array[0] == null;
     }
 
+    //TODO: 구현
     @Override
     public boolean remove(String value) {
+        int index = indexOf(value);
+
+        String[] changedArray = arraySizeDown();
+
+        for (int i = index; i < changedArray.length; i++) {
+            changedArray[i] = array[i+1];
+        }
+        array = changedArray;
         return false;
     }
 
+    private String[] arraySizeDown() {
+        String[] changedArray = new String[array.length - 1];
+
+        for (int i = 0; i < changedArray.length; i++) {
+            changedArray[i] = array[i];
+        }
+        return changedArray;
+    }
+
+    //TODO: 구현
     @Override
     public String remove(int index) {
         return null;
