@@ -102,9 +102,15 @@ public class SimpleArrayList implements SimpleList {
         return changedArray;
     }
 
-    //TODO: 구현
     @Override
     public String remove(int index) {
+        String[] changedArray = arraySizeDown();
+
+        for (int i = index; i < changedArray.length; i++) {
+            changedArray[i] = array[i + 1];
+        }
+
+        array = changedArray;
         return null;
     }
 
