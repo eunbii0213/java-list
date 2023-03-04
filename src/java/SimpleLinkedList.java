@@ -11,22 +11,30 @@ public class SimpleLinkedList implements SimpleList {
     @Override
     public boolean add(String value) {
         if (isFirstNode()) {
+            System.out.println("call");
             node = new Node(value);
             size++;
             return true;
         }
 
         if (!isFirstNode()) {
+            System.out.println("call2");
             Node searchNode = node;
 
             for (int i = 0; i < size; i++) {
-                searchNode = searchNode.getNextNode();
+                if(isNextNodeExist(searchNode)) {
+                    searchNode = searchNode.getNextNode();
+                }
             }
             searchNode.setNextNode(new Node(value));
             size++;
             return true;
         }
-        return true;
+        return false;
+    }
+
+    private boolean isNextNodeExist(Node searchNode) {
+        return searchNode.getNextNode() != null;
     }
 
     private boolean isFirstNode() {
