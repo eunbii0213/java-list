@@ -1,6 +1,5 @@
 package src.java;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,11 +10,14 @@ class SimpleLinkedListTest {
     void add() {
         //given
         SimpleLinkedList list = new SimpleLinkedList();
+
         //when
+        list.add("firstNode");
         String expected = "firstNode";
-        list.add(expected);
+        String actual = list.get(0);
+
         //then
-        assertEquals(expected, list.get(0));
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -30,11 +32,14 @@ class SimpleLinkedListTest {
     void get() {
         //given
         SimpleLinkedList list = new SimpleLinkedList();
+
         //when
+        list.add("nodeGetTest");
         String expected = "nodeGetTest";
-        list.add(expected);
+        String actual = list.get(0);
+
         //then
-        assertEquals(expected, list.get(0));
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -51,6 +56,15 @@ class SimpleLinkedListTest {
 
     @Test
     void isEmpty() {
+        //given
+        SimpleLinkedList list = new SimpleLinkedList();
+
+        //when
+        int expected = 0;
+        int actual = list.getSize();
+
+        //then
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -69,10 +83,12 @@ class SimpleLinkedListTest {
         //when
         list.add("1");
         list.add("2");
-        int expected = 0;
         list.clear();
 
+        int expected = 0;
+        int actual = list.getSize();
+
         //then
-        assertEquals(expected, list.getSize());
+        assertEquals(expected, actual);
     }
 }
