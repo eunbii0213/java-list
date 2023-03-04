@@ -1,8 +1,21 @@
 package src.java;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class SimpleLinkedList implements SimpleList{
+    //Node는 nextNode를 알고있다
+    private Node node;
+    private int size;
+
+    public SimpleLinkedList(String value){
+        this.node = new Node(value);
+    }
+
     @Override
     public boolean add(String value) {
+
         return false;
     }
 
@@ -54,5 +67,14 @@ public class SimpleLinkedList implements SimpleList{
     @Override
     public void clear() {
 
+    }
+}
+
+class Node{
+    Node nextNode;
+    String value;
+
+    public Node(String value){
+        this.value = value;
     }
 }
