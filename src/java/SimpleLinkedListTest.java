@@ -105,6 +105,24 @@ class SimpleLinkedListTest {
 
     @Test
     void remove() {
+        //given
+        SimpleLinkedList actualList = new SimpleLinkedList();
+        SimpleLinkedList expectedList = new SimpleLinkedList();
+
+        //when
+        actualList.add("1");
+        actualList.add("2");
+        actualList.add("3");
+        actualList.remove("2");
+
+        expectedList.add("1");
+        expectedList.add("3");
+
+        String expected = expectedList.toString();
+        String actual = actualList.toString();
+
+        //then
+        assertEquals(expected, actual);
     }
 
     @Test
