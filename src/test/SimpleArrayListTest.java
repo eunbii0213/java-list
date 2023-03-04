@@ -129,6 +129,23 @@ class SimpleArrayListTest {
 
     @Test
     void remove() {
+        //given
+        SimpleArrayList actual = new SimpleArrayList();
+        SimpleArrayList expected = new SimpleArrayList();
+
+        //when
+        actual.add("1");
+        actual.add("2");
+        actual.add("3");
+        actual.add("4");
+        actual.remove("2");
+
+        expected.add("1");
+        expected.add("3");
+        expected.add("4");
+
+        //then
+        assertArrayEquals(expected.getArray(), actual.getArray());
     }
 
     @Test
