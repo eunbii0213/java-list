@@ -71,7 +71,7 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
