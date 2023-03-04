@@ -36,11 +36,12 @@ public class SimpleLinkedList implements SimpleList {
         return size == 0;
     }
 
+    //TODO: 구현
     @Override
     public void add(int index, String value) {
-
     }
 
+    //TODO: 구현
     @Override
     public String set(int index, String value) {
         return null;
@@ -98,9 +99,38 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public boolean remove(String value) {
+        Node searchNode = node;
+        Node preNode = node;
+
+        for (int i = 0; i < size; i++) {
+            changePreNodeSetting(searchNode, value, preNode, i);
+            searchNode = getNextNode(searchNode);
+        }
+
         return false;
     }
 
+    private void changePreNodeSetting(Node searchNode, String value, Node preNode, int i) {
+        preNode = getPreNode(searchNode, value, preNode, i);
+        int postNodeIndex = indexOf(value) + 1;
+
+        if (i == postNodeIndex) {
+            preNode.setNextNode(searchNode);
+            size--;
+        }
+    }
+
+    private Node getPreNode(Node searchNode, String value, Node preNode, int i) {
+        int preNodeIndex = indexOf(value) - 1;
+
+        if (i == preNodeIndex) {
+            preNode = searchNode;
+        }
+
+        return preNode;
+    }
+
+    //TODO: 구현
     @Override
     public String remove(int index) {
         return null;
@@ -109,6 +139,19 @@ public class SimpleLinkedList implements SimpleList {
     @Override
     public void clear() {
         size = 0;
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        Node searchNode = node;
+
+        for (int i = 0; i < size; i++) {
+            result += searchNode.getValue();
+            searchNode = getNextNode(searchNode);
+        }
+
+        return String.join(",", result);
     }
 }
 
