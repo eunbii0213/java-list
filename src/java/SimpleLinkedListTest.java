@@ -44,6 +44,18 @@ class SimpleLinkedListTest {
 
     @Test
     void contains() {
+        //given
+        SimpleLinkedList list = new SimpleLinkedList();
+
+        //when
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        boolean expected = false;
+        boolean actual = list.contains("a");
+
+        //then
+        assertEquals(expected, actual);
     }
 
     @Test
