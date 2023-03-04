@@ -80,16 +80,15 @@ public class SimpleArrayList implements SimpleList {
         return array[0] == null;
     }
 
-    //TODO: 구현
     @Override
     public boolean remove(String value) {
-        int index = indexOf(value);
-
         String[] changedArray = arraySizeDown();
 
+        int index = indexOf(value);
         for (int i = index; i < changedArray.length; i++) {
-            changedArray[i] = array[i+1];
+            changedArray[i] = array[i + 1];
         }
+
         array = changedArray;
         return false;
     }
