@@ -8,6 +8,7 @@ public class SimpleLinkedList implements SimpleList {
     public boolean add(String value) {
         if (isFirstNode()) {
             node = new Node(value);
+            size++;
         }
 
         if (!isFirstNode()) {
@@ -17,6 +18,7 @@ public class SimpleLinkedList implements SimpleList {
                 searchNode = searchNode.getNextNode();
             }
             searchNode.setNextNode(new Node(value));
+            size++;
         }
         return true;
     }
