@@ -61,5 +61,16 @@ class SimpleLinkedListTest {
 
     @Test
     void clear() {
+        //given
+        SimpleLinkedList list = new SimpleLinkedList();
+
+        //when
+        list.add("1");
+        list.add("2");
+        int expected = 0;
+        list.clear();
+
+        //then
+        Assertions.assertEquals(expected, list.getSize());
     }
 }
