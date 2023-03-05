@@ -27,6 +27,17 @@ class SimpleLinkedListTest {
 
     @Test
     void set() {
+        //given
+        SimpleLinkedList list = new SimpleLinkedList();
+
+        //when
+        list.add("nodeSetTest");
+        list.set(0, "changed");
+        String expected = "changed";
+        String actual = list.get(0);
+
+        //then
+        assertEquals(expected, actual);
     }
 
     @Test
