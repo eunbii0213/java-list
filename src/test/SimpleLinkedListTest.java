@@ -22,7 +22,19 @@ class SimpleLinkedListTest {
     }
 
     @Test
-    void testAdd() {
+    void testAddWithIndex() {
+        //given
+        SimpleLinkedList list = new SimpleLinkedList();
+
+        //when
+        list.add("0");
+        list.add("1");
+        list.add(1,"a");
+        String expected = "0a1";
+        String actual = list.toString();
+
+        //then
+        assertEquals(expected, actual);
     }
 
     @Test
