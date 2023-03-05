@@ -46,6 +46,15 @@ public class SimpleLinkedList implements SimpleList {
 
     @Override
     public String set(int index, String value) {
+        Node searchNode = node;
+
+        for (int i = 0; i < size; i++) {
+            if (i == index) {
+                searchNode.setValue(value);
+            }
+            searchNode = getNextNode(searchNode);
+        }
+
         return null;
     }
 
@@ -217,5 +226,9 @@ class Node {
 
     public boolean isNextNodeExist() {
         return nextNode != null;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }
