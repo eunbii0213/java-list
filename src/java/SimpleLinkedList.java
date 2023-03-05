@@ -22,9 +22,7 @@ public class SimpleLinkedList implements SimpleList {
             Node searchNode = node;
 
             for (int i = 0; i < size; i++) {
-                if (searchNode.isNextNodeExist()) {
-                    searchNode = searchNode.getNextNode();
-                }
+                searchNode = getNextNode(searchNode);
             }
             searchNode.setNextNode(new Node(value));
             size++;
@@ -38,9 +36,32 @@ public class SimpleLinkedList implements SimpleList {
         return size == 0;
     }
 
-    //TODO: 구현
     @Override
     public void add(int index, String value) {
+        if (isFirstNode() && index == 0) {
+            node = new Node(value);
+            size++;
+
+            return;
+        }
+
+        if (!isFirstNode()) {
+            Node searchNode = this.node;
+
+            for (int i = 0; i < size; i++) {
+                if (i == index - 1) {
+                    Node postNode = searchNode.getNextNode();
+                    Node node = new Node(value);
+
+                    searchNode.setNextNode(node);
+                    node.setNextNode(postNode);
+                    size++;
+
+                    return;
+                }
+                searchNode = getNextNode(searchNode);
+            }
+        }
     }
 
 
