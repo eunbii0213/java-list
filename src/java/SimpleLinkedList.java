@@ -14,6 +14,7 @@ public class SimpleLinkedList implements SimpleList {
         if (isFirstNode()) {
             node = new Node(value);
             size++;
+
             return true;
         }
 
@@ -29,6 +30,7 @@ public class SimpleLinkedList implements SimpleList {
             size++;
             return true;
         }
+
         return false;
     }
 
@@ -41,7 +43,7 @@ public class SimpleLinkedList implements SimpleList {
     public void add(int index, String value) {
     }
 
-    //TODO: 구현
+
     @Override
     public String set(int index, String value) {
         return null;
@@ -61,6 +63,7 @@ public class SimpleLinkedList implements SimpleList {
             }
             searchNode = getNextNode(searchNode);
         }
+
         return false;
     }
 
@@ -68,12 +71,14 @@ public class SimpleLinkedList implements SimpleList {
         if (searchNode.isNextNodeExist()) {
             searchNode = searchNode.getNextNode();
         }
+
         return searchNode;
     }
 
     @Override
     public int indexOf(String value) {
         Node searchNode = node;
+
         return findIndex(value, searchNode);
     }
 
@@ -84,6 +89,7 @@ public class SimpleLinkedList implements SimpleList {
             }
             searchNode = getNextNode(searchNode);
         }
+
         return ERROR;
     }
 
@@ -130,10 +136,40 @@ public class SimpleLinkedList implements SimpleList {
         return preNode;
     }
 
-    //TODO: 구현
     @Override
     public String remove(int index) {
+        Node searchNode = node;
+        Node preNode = node;
+        String value = findValue(index);
+
+        for (int i = 0; i < size; i++) {
+            value = getValue(index, searchNode, value, i);
+            changePreNodeSetting(searchNode, value, preNode, i);
+            searchNode = getNextNode(searchNode);
+        }
+
         return null;
+    }
+
+    public String findValue(int index) {
+        Node searchNode = node;
+        String value = "";
+
+        for (int i = 0; i < size; i++) {
+            if (i == index) {
+                value = searchNode.getValue();
+            }
+            searchNode = getNextNode(searchNode);
+        }
+
+        return value;
+    }
+
+    private String getValue(int index, Node searchNode, String value, int i) {
+        if (i == index) {
+            value = searchNode.getValue();
+        }
+        return value;
     }
 
     @Override
