@@ -1,6 +1,7 @@
-package src.java;
+package src.test;
 
 import org.junit.jupiter.api.Test;
+import src.java.SimpleLinkedList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -127,6 +128,24 @@ class SimpleLinkedListTest {
 
     @Test
     void testRemove() {
+        //given
+        SimpleLinkedList actualList = new SimpleLinkedList();
+        SimpleLinkedList expectedList = new SimpleLinkedList();
+
+        //when
+        actualList.add("1");
+        actualList.add("2");
+        actualList.add("3");
+        actualList.remove(1);
+
+        expectedList.add("1");
+        expectedList.add("3");
+
+        String expected = expectedList.toString();
+        String actual = actualList.toString();
+
+        //then
+        assertEquals(expected, actual);
     }
 
     @Test
